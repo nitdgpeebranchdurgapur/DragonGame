@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -12,39 +34,76 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <canvas id="canvas1"> </canvas>
-    <!-- Game start and End display -->
+  <body class="mainDiv">
+    <div class="container">
+      <div class="column">
+        <div class="row d-flex flex-row justify-content-center">
+          <div>
+            <h1
+              id="gameHeading"
+              style="color: rgb(41, 147, 173); font-size: 70px"
+            >
+              DRAGON GAME
+            </h1>
+          </div>
+        </div>
 
-    <!-- Characters -->
-    <img id="player" src="assets/player.png" />
-    <img id="angler1" src="assets/angler1.png" />
-    <img id="angler2" src="assets/angler2.png" />
-    <img id="lucky" src="assets/lucky.png" />
-    <img id="hivewhale" src="assets/hivewhale.png" />
-    <img id="drone" src="assets/drone.png" />
-    <img id="bulb" src="assets/bulbwhale.png" />
-    <img id="moon" src="assets/moonfish.png" />
-    <!-- Props -->
-    <img id="projectile" src="assets/projectile.png" />
-    <img id="gears" src="assets/gears.png" />
-    <img id="fireExplosion" src="assets/fireExplosion.png" />
-    <img id="smokeExplosion" src="assets/smokeExplosion.png" />
-    <img id="shieldAnimation" src="assets/sheild.png" />
-    <img id="fireball" src="assets/fireball.png" />
-    <!-- Environment -->
-    <img id="layer1" src="assets/layer1.png" />
-    <img id="layer2" src="assets/layer2.png" />
-    <img id="layer3" src="assets/layer3.png" />
-    <img id="layer4" src="assets/layer4.png" />
-    <!-- Sounds -->
-    <audio id="powerup" src="sounds/powerup.wav"></audio>
-    <audio id="powerdown" src="sounds/powerdown.wav"></audio>
-    <audio id="shield" src="sounds/shield.wav"></audio>
-    <audio id="shot" src="sounds/shot.wav"></audio>
-    <audio id="hit" src="sounds/hit.wav"></audio>
-    <audio id="explosion" src="sounds/explosion.wav"></audio>
-    <!-- <h1>Press "n" to Begin the Game....</h1> -->
+        <div
+          class="row d-flex flex-row justify-content-center"
+          style="margin-bottom: 20px"
+        >
+          <div>
+            <canvas id="canvas1"> </canvas>
+            <!-- Game start and End display -->
+
+            <!-- Characters -->
+            <img id="player" src="player.png" />
+            <img id="angler1" src="angler1.png" />
+            <img id="angler2" src="angler2.png" />
+            <img id="lucky" src="lucky.png" />
+            <img id="hivewhale" src="hivewhale.png" />
+            <img id="drone" src="drone.png" />
+            <img id="bulb" src="bulbwhale.png" />
+            <img id="moon" src="moonfish.png" />
+            <!-- Props -->
+            <img id="projectile" src="projectile.png" />
+            <img id="gears" src="gears.png" />
+            <img id="fireExplosion" src="fireExplosion.png" />
+            <img id="smokeExplosion" src="smokeExplosion.png" />
+            <img id="shieldAnimation" src="sheild.png" />
+            <img id="fireball" src="fireball.png" />
+            <!-- Environment -->
+            <img id="layer1" src="layer1.png" />
+            <img id="layer2" src="layer2.png" />
+            <img id="layer3" src="layer3.png" />
+            <img id="layer4" src="layer4.png" />
+            <!-- Sounds -->
+            <audio id="powerup" src="powerup.wav"></audio>
+            <audio id="powerdown" src="powerdown.wav"></audio>
+            <audio id="shield" src="shield.wav"></audio>
+            <audio id="shot" src="shot.wav"></audio>
+            <audio id="hit" src="hit.wav"></audio>
+            <audio id="explosion" src="explosion.wav"></audio>
+            <!-- <h1>Press "n" to Begin the Game....</h1> -->
+          </div>
+        </div>
+
+        <div class="row d-flex flex-row justify-content-center">
+          <!-- <h2 class="m-auto" style="color: green">Press "n" to Start......</h2> -->
+          <button
+            id="startBtn"
+            class="btn btn-primary"
+            style="
+              width: 100px;
+              background-color: transparent;
+              border-color: antiquewhite;
+            "
+          >
+            Start
+          </button>
+        </div>
+      </div>
+    </div>
 
     <script src="scripts.js"></script>
   </body>
