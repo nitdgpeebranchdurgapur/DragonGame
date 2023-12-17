@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
   canvas.width = 1000;
   canvas.height = 500;
   // canvas.fillText(`Press 'n' to Begin the Game....`,canvas.width*0.5,canvas.height*0.5);
-
+  let startBtn = document.getElementById("startBtn");
   class InputHandler {
     constructor(game) {
       this.game = game;
@@ -26,6 +26,9 @@ window.addEventListener("load", function () {
         }
         // console.log(event.key);
       });
+      startBtn.onclick = function () {
+        animate(0);
+      };
       window.addEventListener("keyup", (event) => {
         if (this.game.keys.indexOf(event.key) > -1) {
           this.game.keys.splice(this.game.keys.indexOf(event.key), 1);
@@ -660,10 +663,7 @@ window.addEventListener("load", function () {
       this.debug = false;
     }
     update(deltaTime) {
-      // if (!this.gameOver) this.gameTime += deltaTime;
-      // if(this.gameOver){
-      //   this.
-      // }
+      if (!this.gameOver) this.gameTime += deltaTime;
       if (this.gameTime > this.timeLimit) this.gameOver = true;
       this.background.update();
       this.background.layer4.update();
@@ -834,5 +834,4 @@ window.addEventListener("load", function () {
     game.update(deltaTime); // Game Update Loop requestAnimationFrame() loop.
     requestAnimationFrame(animate);
   }
-  // animate(0);
 });
