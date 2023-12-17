@@ -3,7 +3,6 @@ window.addEventListener("load", function () {
   const ctx = canvas.getContext("2d");
   canvas.width = 1000;
   canvas.height = 500;
-  // canvas.fillText(`Press 'n' to Begin the Game....`,canvas.width*0.5,canvas.height*0.5);
   let startBtn = document.getElementById("startBtn");
   class InputHandler {
     constructor(game) {
@@ -24,11 +23,9 @@ window.addEventListener("load", function () {
         } else if (event.key === "n") {
           animate(0);
         }
-        // console.log(event.key);
+        console.log(event.key);
       });
-      startBtn.onclick = function () {
-        animate(0);
-      };
+
       window.addEventListener("keyup", (event) => {
         if (this.game.keys.indexOf(event.key) > -1) {
           this.game.keys.splice(this.game.keys.indexOf(event.key), 1);
@@ -122,7 +119,6 @@ window.addEventListener("load", function () {
     }
     reset() {
       this.frameX = 0;
-      // this.game.sound.shield();
     }
   }
   class SoundController {
@@ -232,12 +228,6 @@ window.addEventListener("load", function () {
       this.powerUpLimit = 1000 * 5;
     }
     update(deltaTime) {
-      // if (this.game.keys.includes("ArrowUp")) this.speedY = -this.maxSpeed;
-      // else if (this.game.keys.includes("ArrowDown"))
-      //   this.speedY = this.maxSpeed;
-      // else this.speedY = 0;
-      // this.y += this.speedY;
-
       if (this.game.keys.includes("ArrowUp")) this.y -= this.maxSpeed;
       else if (this.game.keys.includes("ArrowDown")) this.y += this.maxSpeed;
       else if (this.game.keys.includes("ArrowRight")) this.x += this.maxSpeed;
@@ -596,6 +586,7 @@ window.addEventListener("load", function () {
       // timer
       context.font = this.fontsize * 0.8 + "px Bangers";
       let formattedTime = this.game.gameTime * 0.001;
+      // console.log(formattedTime);
       context.fillText(`Timer:${formattedTime.toFixed(1)}`, 20, 90);
       // Ammo
       if (this.game.player.powerUp) context.fillStyle = "#dbbf0d";
@@ -822,9 +813,11 @@ window.addEventListener("load", function () {
   }
 
   const game = new Game(canvas.width, canvas.height);
+  console.log(game);
   let lastTime = 0;
   //   animation loop
   //   This animate loop runs every deltaTime time Interval.(~8.35ms).
+
   function animate(timeStamp) {
     const deltaTime = timeStamp - lastTime;
     // console.log(deltaTime);
@@ -834,4 +827,6 @@ window.addEventListener("load", function () {
     game.update(deltaTime); // Game Update Loop requestAnimationFrame() loop.
     requestAnimationFrame(animate);
   }
+
+  animate(0);
 });
